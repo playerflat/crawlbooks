@@ -1,3 +1,4 @@
 from src.univ import runner
 
-runner.kangwon()
+# runner.kangwon()
+# runner.gyeongsang()
