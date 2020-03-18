@@ -8,6 +8,7 @@
 #### 지원되는 곳
 - [강원대학교 도서관](http://lib.kangwon.ac.kr:8080/board/list_book.jsp?pg=1&bcs=60&re=1)
 - [경상대학교 도서관](http://books.gnu.ac.kr/local/recommend/recommend100List.do)
+- [목원대학교 도서관](https://liberalarts.mokwon.ac.kr/sub0401/articles/index/tableid/recommended/category/7)
 - 발견하고 필요하면 추가 예정
 
 #### 실행 안될 때
