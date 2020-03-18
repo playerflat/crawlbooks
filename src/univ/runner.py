@@ -48,3 +48,31 @@ def gyeongsang():
         print(f'gyeongsang {df_index}')
     df.to_csv("../output/gyeongsang.csv", encoding="utf-8-sig", index=False)
     print("crawlbooks/output/gyeongsang.csv is saved")
+
+
+def mokwon():
+    # 목원대학교 리딩목원 2018 추천도서는 120권 (20200318)
+    df = pd.read_csv("./univ/base.csv")
+    df_index = 0
+    for page in range(1196, 1316):  # 1316
+        res = requests.get(
+            f'https://liberalarts.mokwon.ac.kr/sub0401/articles/view/tableid/recommended/category/7/id/{page}')
+        soup = BeautifulSoup(res.content, 'html.parser')
+        title = soup.select_one(' tr > td > strong')
+        author = soup.find('font', {'color': '#ff0000'})
+        title = title.text[3:]
+        try:
+            if title[0] == " ":
+                title = title[1:]
+        except IndexError:
+                title = " "
+        if author is not None:
+            author = re.sub('[0-9.~]', '', author.text.split("/")[0]).strip()
+        else:
+            author = ""
+        df.loc[df_index] = [title, author, ""]
+        df_index += 1
+        time.sleep(0.5)
+        print(f'mokwon {df_index}')
+    df.to_csv("../output/mokwon.csv", encoding="utf-8-sig", index=False)
+    print("crawlbooks/output/mokwon.csv is saved")
